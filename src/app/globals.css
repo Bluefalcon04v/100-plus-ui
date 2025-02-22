@@ -1,21 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #171717;
+  --foreground: #fff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------------- Starting Style --------------------- */
+.dropdown-starting {
+  /* opacity: 1;
+  translate: 0;
+
+  @starting-style {
+    opacity: 0;
+    translate: 100px;
+  } */
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0%);
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
 }
