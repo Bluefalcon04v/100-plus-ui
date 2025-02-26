@@ -1,14 +1,29 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
 
 :root {
   --background: #171717;
   --foreground: #fff;
 }
 
+@theme {
+  --color-orange: #fba002;
+  --color-white: #f5f5f5;
+  --color-gray: #666666;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ------------------- Fonts ------------------------ */
+.font-roboto {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
 }
 
 /* -------------------- Scroll Bar Styling ----------------------- */
