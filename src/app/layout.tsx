@@ -24,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} > 
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <div className="mx-auto w-11/12 h-screen overflow-clip">
-        {children}
+          {children}
         </div>
       </body>
     </html>
