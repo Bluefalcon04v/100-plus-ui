@@ -17,8 +17,8 @@ const Page = () => {
 
   return (
     <div className="flex gap-4">
-      <div className="relative bg-black p-4 rounded-lg w-1/2">
-        <pre className="overflow-auto font-mono text-sm whitespace-pre-wrap">
+      <div className="relative bg-black p-6 rounded-lg w-1/2">
+        <pre className="overflow-auto text-sm whitespace-pre-wrap">
           {cardCode}
         </pre>
         <CopyToClipboard text={cardCode} onCopy={() => setCopied(true)}>
