@@ -1,33 +1,41 @@
+import { CARD_CODE } from "../../../constants/constants";
 import { Paperclip } from "lucide-react";
 import React from "react";
 
 interface IAvatarCard {
   type: "center-aligned" | "left-aligned" | "right-aligned";
   setOpenCopyCode: (state: boolean) => void;
+  setCopyCodeType: (string: string) => void;
 }
 
-const AvatarCards = ({ type, setOpenCopyCode }: IAvatarCard) => {
+const AvatarCards = ({ type, setOpenCopyCode, setCopyCodeType }: IAvatarCard) => {
+  const selectedCode =
+    CARD_CODE.find((card) => card.type === type)?.code ?? "<div></div>";
+
   return (
-      <div className="relative flex flex-col justify-center items-center gap-4 bg-white px-8 py-8 border rounded-lg w-full max-w-80 h-full">
-        <button onClick={()=> setOpenCopyCode(true)} className="top-2 right-2 absolute">
-          <Paperclip
-            color="black"
-            className="hover:stroke-gray-400 active:stroke-gray-500 transition-all cursor-pointer"
-          />
-        </button>
-        {/* <Link href={`/code/${type}`} className="top-2 right-2 absolute">
-          <Paperclip
-            color="black"
-            className="hover:stroke-gray-400 active:stroke-gray-500 transition-all cursor-pointer"
-          />
-        </Link> */}
-        <div className="bg-gray-500 rounded-full w-20 h-20" />
-        <div className="text-black text-2xl">Headline</div>
-        <p className="text-gray-500 text-center text-pretty">
-          Please add your content here. Keep it short and simple. And smile :)
-        </p>
-      </div>
-    );
+    <div className="relative flex flex-col justify-center items-center gap-4 bg-white px-2 py-3 border rounded-lg w-full max-w-80 h-full">
+      <button
+        onClick={() => {
+          setOpenCopyCode(true);
+          setCopyCodeType(type);
+        }}
+        className="group top-2 right-2 absolute shadow shadow-black/40 active:shadow-inner p-2 rounded-full transition-all duration-500 ease-in-out cursor-pointer"
+      >
+        <Paperclip
+          color="black"
+          className="group-hover:stroke-gray-400 active:stroke-gray-700 transition-all cursor-pointer"
+        />
+      </button>
+
+      {type === "center-aligned" && (
+        <div dangerouslySetInnerHTML={{ __html: selectedCode }} />
+      )}
+
+      {type === "left-aligned" && (
+        <div dangerouslySetInnerHTML={{ __html: selectedCode }} />
+      )}
+    </div>
+  );
 };
 
 export default AvatarCards;
