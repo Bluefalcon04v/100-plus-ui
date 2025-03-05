@@ -22,7 +22,7 @@ const Page = () => {
           {cardCode}
         </pre>
         <CopyToClipboard text={cardCode} onCopy={() => setCopied(true)}>
-          <button className="top-2 right-2 absolute flex items-center gap-1 bg-gray-200 hover:bg-gray-300 p-2 rounded-md text-gray-600">
+          <button className="top-2 right-2 absolute flex items-center gap-1 bg-gray-200 hover:bg-gray-300 p-2 rounded-md text-gray-600 text-xs">
             {copied ? <Check size={16} /> : <Copy size={16} />}
             {copied ? "Copied" : "Copy Code"}
           </button>

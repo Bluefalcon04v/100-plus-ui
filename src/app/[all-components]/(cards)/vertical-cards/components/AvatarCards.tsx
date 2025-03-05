@@ -1,21 +1,26 @@
 import { Paperclip } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 
 interface IAvatarCard {
   type: "center-aligned" | "left-aligned" | "right-aligned";
+  setOpenCopyCode: (state: boolean) => void;
 }
 
-const AvatarCards = ({ type }: IAvatarCard) => {
-  if (type === "center-aligned")
-    return (
+const AvatarCards = ({ type, setOpenCopyCode }: IAvatarCard) => {
+  return (
       <div className="relative flex flex-col justify-center items-center gap-4 bg-white px-8 py-8 border rounded-lg w-full max-w-80 h-full">
-        <Link href={`/code/${type}`} className="top-2 right-2 absolute">
+        <button onClick={()=> setOpenCopyCode(true)} className="top-2 right-2 absolute">
           <Paperclip
             color="black"
             className="hover:stroke-gray-400 active:stroke-gray-500 transition-all cursor-pointer"
           />
-        </Link>
+        </button>
+        {/* <Link href={`/code/${type}`} className="top-2 right-2 absolute">
+          <Paperclip
+            color="black"
+            className="hover:stroke-gray-400 active:stroke-gray-500 transition-all cursor-pointer"
+          />
+        </Link> */}
         <div className="bg-gray-500 rounded-full w-20 h-20" />
         <div className="text-black text-2xl">Headline</div>
         <p className="text-gray-500 text-center text-pretty">
